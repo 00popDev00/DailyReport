@@ -9,6 +9,7 @@ module.exports = {
     filename: "index.bundle.js",
   },
   devServer: {
+    host: "0.0.0.0",
     port: 3000,
     watchContentBase: true,
     historyApiFallback: true,
@@ -20,11 +21,26 @@ module.exports = {
         exclude: /nodeModules/,
         use: {
           loader: "babel-loader",
+          //   { test: /\.js$/, loader: 'babel', query: {compact: false} }
         },
       },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
       },
     ],
   },

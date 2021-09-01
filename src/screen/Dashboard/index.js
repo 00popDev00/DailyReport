@@ -4,6 +4,7 @@ const Dashboard = (props) => {
   return (
     <div>
       <label>Dashboard</label>
+      <button onClick={() => console.log("-->")}>here</button>
     </div>
   );
 };
